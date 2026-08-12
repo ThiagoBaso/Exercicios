@@ -1,12 +1,13 @@
 <?php
 
-$width = 200;
+$width = 60;
 $height = 95;
+$color = ["\033[37m","\033[37m", "\033[33m","\033[33m", "\033[31m"];
 
 $fire = array_fill(0, $width * $height, 0);
 
 for ($j = 0; $j < $width; $j++) {
-    $fire[($height - 1) * $width + $j] = 9;
+    $fire[($height - 1) * $width + $j] = 5;
 }
 
 //echo $fire[($width * $height)-1];
@@ -29,9 +30,10 @@ while (True){
 
     for($i = 0; $i < $height; $i++){
         for($j = 0; $j < $width; $j++){
-            if($fire[$i * $width + $j] != 0){
+            $p = $fire[$i * $width + $j];
+            if($p != 0){
                 //echo $fire[$i * $width + $j];
-                $print .= $fire[$i * $width + $j];
+                $print .= $p . $color[$p];
             }
             else{
                 //echo " ";
